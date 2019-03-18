@@ -122,5 +122,56 @@ class Solution_3:
         return self.duplication
 
 
+class Solution_4:
+    """
+    不修改数组排序 二分查找法变形 【未调试出结果】
+    时间复杂度:O(nlogn) 空间复杂度:O(1)
+    输入：
+    - numbers:  输入数组
 
+    输出:
+    - duplication:  存在重复数字: 输出重复数字
+                    输入错误数字: 返回-1
+                    不存在错误数字: 返回-2
+    """
+    def __init__(self, numbers):
+        self.numbers = numbers
+        self.duplication = -2
 
+    def duplicate(self):
+        # S1: 异常处理
+        if self.numbers.all() == None or len(self.numbers)<1:
+            return -1
+
+        # S2: 二分排序
+        start = 0
+        end = len(self.numbers)-1
+        while start<=end:
+            middle=(end-start)//2+start
+            counter = self.countRange(self.numbers, len(self.numbers), start, middle)
+            if end==start:
+                if counter>1:
+                    return start
+                else:
+                    break
+
+            if counter>middle-start+1:
+                end=middle
+            else:
+                start=middle+1
+
+        return -2
+
+    def countRange(self, numbers, length, start, end):
+        """
+        计算数组中元素大于等于start 小于等于end地个数
+        """
+        if self.numbers.all()==None:
+            return 0
+        
+        count=0
+        for i in range(length):
+            if numbers[i]>=start and numbers[i]<=end:
+                count+=1
+        
+        return count
