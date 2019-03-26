@@ -1,5 +1,7 @@
 # 《剑指Offer》面试题: Python实现
-参考：AlgorithmsByPython（https://github.com/Jack-Lee-Hiter/AlgorithmsByPython）、《剑指Offer》面试题Python实现（https://github.com/JushuangQiao/Python-Offer）、剑指offer（第2版）Python版汇总（https://www.cnblogs.com/yanmk/p/9130681.html）；
+参考：AlgorithmsByPython（ https://github.com/Jack-Lee-Hiter/AlgorithmsByPython ）；
+《剑指Offer》面试题Python实现（ https://github.com/JushuangQiao/Python-Offer ）；
+剑指offer（第2版）Python版汇总（ https://www.cnblogs.com/yanmk/p/9130681.html ）；
 
 ## 第2章 [面试基础知识](/second)
 ### 2.2 [编程语言]
