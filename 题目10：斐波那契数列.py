@@ -35,6 +35,7 @@ class Solution_2:
     def Fibonacci(self, n):
         """
         递归计算
+        时间复杂度：nlog(n)
         输入：
         - n：   输出的斐波那契数列位数；
         输出：
@@ -72,9 +73,109 @@ class Solution_3:
 
         return x[1]
 
+
         
+"""
+名称：  青蛙跳台阶
+题目：  一只青蛙一次可以跳上1级台阶，也可以跳上2级。
+        求该青蛙跳上一个n级的台阶总共有多少种跳法。
+测试：  
+"""
+
+class Solution_4:
+    def JumpFloor(self, number):
+        if number<0:
+            return 0
+        elif number==1:
+            return 1
+        elif number==2:
+            return 2
+
+        for _ in range(2, number+1):
+            return self.JumpFloor(number-1)+self.JumpFloor(number-2)
+
+
+
+"""
+名称：  升级版青蛙跳台阶
+题目：  一只青蛙一次可以跳上1级台阶，也可以跳上2级……它也可以跳上n级。
+        求该青蛙跳上一个n级的台阶总共有多少种跳法。
+测试：  
+"""
+class Solution_5:
+    def JumpFloor(self, number):
+        """
+        数学归纳法
+        """
+        return 2**(number-1)
+
+
+"""
+名称：  矩形覆盖
+题目：  用2*1的小矩形 横着或竖着 覆盖更大矩形。
+        用n个2*1的小矩形无重叠地覆盖2*n个大矩形 有多少种方法？
+测试：
+"""
+class Solution_6:
+    def rectCover(self, number):
+        """
+        还是可以看成 f(n) = f(n-2)+f(n-1) 的斐波那契数列问题
+        输入:
+        - number: 输入数据
+        """
+        if number<=0:
+            return 0
+        elif number==1:
+            return 1
+        elif number==2:
+            return 2
+
+        fn_1 = 1
+        fn_2 = 2
+        for i in range(3, number):
+            s = fn_1 + fn_2
+            fn_2 = fn_1
+            fn_1 = s
+
+        return s
         
 
+"""
+题目：快速排序 未写出来；
+"""
+class quickSortList:
+    def sort(self, alist, left, right):
+        """
+        快速排序
+        输入：
+        - arr
+        输出：
+        - 
+        """
+        if left>right:
+            return 0
+        
+        while left<right:
+            med = alist[left]
+            l, r = left, right
+
+            while alist[l]<med and l<r:
+                l+=1
+
+            while alist[r]>med and r>l:
+                r-=1
+
+            alist[l], alist[r] = alist[r], alist[l]
+            alist[l], alist[left] = alist[left], alist[l]
+
+            if left>=right:
+                left+=1
+                right-=1
+
+        return alist
 
 
 
+l = [4, 2, 6, 9, 3, 7]
+s = quickSortList()
+print(s.sort(l, 0, 5))
