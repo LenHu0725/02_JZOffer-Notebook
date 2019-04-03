@@ -144,38 +144,35 @@ class Solution_6:
 题目：快速排序 未写出来；
 """
 class quickSortList:
+    """
+    快速排序 分而治之
+    推荐视频：【B站】av47837026
+    输入：
+    - alist: 排序数组
+    输出：
+    - alist: 排序后的数组
+    """   
     def sort(self, alist, left, right):
-        """
-        快速排序
-        输入：
-        - arr
-        输出：
-        - 
-        """
-        if left>right:
-            return 0
+
+        pivot = alist[right]  # 定义pivot
+        i = left-1
+        for j in range(left, right):
+            if alist[j]<pivot:
+                i+=1
+                alist[i], alist[j] = alist[j], alist[i]
+
+        alist[right], alist[i+1] = alist[i+1], alist[right]
+        return i+1
+
+    def quick_sort(self, alist, left, right):
+        if left<right:
+            pivot_index = self.sort(alist, left, right)
+            self.quick_sort(alist, left, pivot_index-1)
+            self.quick_sort(alist, pivot_index+1, right)
         
-        while left<right:
-            med = alist[left]
-            l, r = left, right
-
-            while alist[l]<med and l<r:
-                l+=1
-
-            while alist[r]>med and r>l:
-                r-=1
-
-            alist[l], alist[r] = alist[r], alist[l]
-            alist[l], alist[left] = alist[left], alist[l]
-
-            if left>=right:
-                left+=1
-                right-=1
-
         return alist
 
-
-
-l = [4, 2, 6, 9, 3, 7]
+l = [4, 2, 6, 9, 3, 7, 10, 8]
+l2= [4, 2, 6, 9, 3, 7]
 s = quickSortList()
-print(s.sort(l, 0, 5))
+print(s.quick_sort(l, 0, len(l)-1))
