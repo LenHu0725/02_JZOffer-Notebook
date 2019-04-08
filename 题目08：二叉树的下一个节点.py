@@ -38,11 +38,11 @@ class Solution():
                 pNode = pNode.left
             return pNode
         elif pNode.next!=None and pNode.next.right==pNode:
-            # S3:  无右节点 -> 情况1:某父节点是左节点
+            # S3:  无右节点 -> 该节点是父节点的右节点
             while pNode.next!=None and pNode.next.left!=pNode:
                 pNode=pNode.next
             return pNode.next
         else :
-            # S4: 无右节点 -> 情况2:某父节点是右节点
+            # S4: 无父节点
             return pNode
         
