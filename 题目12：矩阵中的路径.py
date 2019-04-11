@@ -13,12 +13,12 @@ class Solution:
         """ 
         查找 matrix[row, col]下一个 是否为 strs[i]的字符
         输入：
-        - matrix:  输入数组;
-        - row:  选定行;
-        - col:  选定列;
-        - s:    下一个字符;
+        - matrix:   输入数组;
+        - row:      选定行;
+        - col:      选定列;
+        - s:        下一个字符;
         输出：
-        - next: -1未找到下一个字符 1上 2右 3下 4左
+        - next:     -1未找到下一个字符 1上 2右 3下 4左
         """
         if not matrix or rows<0 or cols<0 or path==None:
             return False
