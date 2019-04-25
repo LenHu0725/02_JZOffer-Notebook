@@ -3,7 +3,7 @@
 名称：数值的整数次方
 题目：实现函数double Power(double base, int exponent)，
      求base的exponent次方、不得使用库函数，同时不需要考虑大数问题。
-补充： 
+补充：底数和指数分别设为 正数、负数和零
 """
 
 class Solution1:
@@ -12,7 +12,7 @@ class Solution1:
         """ 考虑底数为0.0 指数为负数
         输入：
         - base: [double] 底数
-        - exponent: [int] 幂指数
+        - exponent: [int] 指数
         输出：
         - result: 输出结果
         """
@@ -30,7 +30,7 @@ class Solution1:
         """ 乘次方函数
         输入：
         - base: [double] 输入底数 
-        - exponent: [int] 幂次方
+        - exponent: [int] 指数次方
         输出：
         - restult: 结果
         """
@@ -55,7 +55,7 @@ class Solution2:
         """ 使用平方的一半乘以平方的一半 递归的方法
         输入：
         - base: [double] 输入底数 
-        - exponent: [int] 幂次方
+        - exponent: [int] 指数次方
         输出：
         - restult: 结果
         """
@@ -75,7 +75,7 @@ class Solution2:
         """ 使用迭代的方法完成幂指数相乘
         输入：
         - base: [double] 输入底数 
-        - exponent: [int] 幂次方
+        - exponent: [int] 指数次方
         输出：
         - restult: 结果
         """
@@ -89,6 +89,7 @@ class Solution2:
         if exponent & 0x1==1:
             res*=base
         return res
+
 
 num2 = Solution2()
 print(num2.Power(5.0, 4))
