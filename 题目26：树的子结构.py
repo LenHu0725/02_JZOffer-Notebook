@@ -2,10 +2,11 @@
 """
 名称：树的子结构
 题目：输入两棵二叉树A和B，判断B是不是A的子结构；
-测试：
+测试：树A和B都是普通二叉树，树B不是A的子结构；
+     A和B 一个或两个 跟节点为Null；所有节点没有左子树或右子树；
 """
 
-# 解题思路：
+# 解题思路：递归
 
 class TreeNode:
     def __init__(self, x):
@@ -32,10 +33,10 @@ class Solution:
                 res = self.SubtreeCore(pRoot1, pRoot2)
             
             if not res:
-                res = self.SubtreeCore(pRoot1.left, pRoot2)
+                res = self.HasSubtree(pRoot1.left, pRoot2)
             
             if not res:
-                res = self.SubtreeCore(pRoot1.right, pRoot2)
+                res = self.HasSubtree(pRoot1.right, pRoot2)
 
         return res
 
@@ -58,5 +59,4 @@ class Solution:
         if pRoot1.val != pRoot2.val:
             return False
 
-        return self.SubtreeCore(pRoot1.left, proot2.left) and 
-               self.SubtreeCore(pRoot1.right, pRoot2.right)
+        return self.SubtreeCore(pRoot1.left, pRoot2.left) and self.SubtreeCore(pRoot1.right, pRoot2.right)
