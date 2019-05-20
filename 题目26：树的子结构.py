@@ -22,20 +22,41 @@ class Solution:
         - pRoot1:
         - pRoot2:
         输出：
-        - res:
+        - res: TRUE/FALSE
         """
         res = False    # 定义res为
 
 
         if pRoot1 and pRoot2:
-            if proot1.val == pRoot2.val:
-                res = SubtreeCore(pRoot1, pRoot2)
+            if pRoot1.val == pRoot2.val:
+                res = self.SubtreeCore(pRoot1, pRoot2)
             
             if not res:
+                res = self.SubtreeCore(pRoot1.left, pRoot2)
+            
+            if not res:
+                res = self.SubtreeCore(pRoot1.right, pRoot2)
 
+        return res
 
 
     def SubtreeCore(self, pRoot1, pRoot2):
         """
-        
+        检查子树是否符合要求
+        输入：
+        - pRoot1:树
+        - pRoot2:子树
+        输出：
+        - TRUE/FALSE
         """
+        if pRoot1 == None:
+            return None
+
+        if pRoot2 == None:
+            return None
+
+        if pRoot1.val != pRoot2.val:
+            return False
+
+        return self.SubtreeCore(pRoot1.left, proot2.left) and 
+               self.SubtreeCore(pRoot1.right, pRoot2.right)
