@@ -1,8 +1,10 @@
 # 《剑指Offer》面试题: Python实现
-参考：
-[VISUALGO可视化](https://visualgo.net/en)； 
-[剑指offer（第2版）Python版汇总](https://www.cnblogs.com/yanmk/p/9130681.html/)；  
-[AlgorithmsByPython](https://github.com/Jack-Lee-Hiter/AlgorithmsByPython/)；  
+
+遇到不熟悉的知识点看[VISUALGO可视化](https://visualgo.net/en)的讲解；   
+
+参考三位大佬答案：  
+[剑指offer（第2版）Python版汇总](https://www.cnblogs.com/yanmk/p/9130681.html/)、  
+[AlgorithmsByPython](https://github.com/Jack-Lee-Hiter/AlgorithmsByPython/)、  
 [《剑指Offer》面试题Python实现](https://github.com/JushuangQiao/Python-Offer/)；  
 
 
@@ -27,3 +29,6 @@
 ## 第3章 [高质量的代码](/third)
 ### 3.3 [代码的完整性]
 > #### 面试题16 [数值的整数次方](./题目16：数值的整数次方.py)
+> #### 面试题17 [打印从1到最大的n位数](./题目17：打印从1到最大的n位数.py)
+> #### 面试题18 [面试题18：删除链表的节点](./题目18：正则表达式匹配.py)
+> #### 面试题19 [正则表达式匹配](./题目19：表示数值的字符串.py)
